@@ -1,4 +1,5 @@
-#Импорт модуля math
+#Импорт модуля math и time (чтобы программа сразу не закрывалась)
+from time import *
 import math as mh
 #Нахождение корней квадратного уравнения (+свойста коэффициентов)
 #Квадратное уравнение имеет вид:
@@ -18,39 +19,49 @@ if (a + b + c == 0):
     x2 = c / a
     print("Первый корень, x1 = " + str(x1))
     print("Второй корень, x2 = " + str(x2))
+    sleep(30)
     exit()
 elif (b == a + c):
     x1 = -1
     x2 = -c / a
     print("Первый корень, x1 = " + str(x1))
     print("Второй корень, x2 = " + str(x2))
+    sleep(30)
     exit()
 elif (b % 2 == 0):
     D = (b/2)**2 - a * c
     if (D < 0):
         print("Нет корней, так как дискриминант меньше нуля")
+        sleep(30)
         exit()
     if (D > 0):
         x1 = (-b / 2 + mh.sqrt(D)) / a
         x2 = (-b / 2 - mh.sqrt(D)) / a
         print("Первый корень, x1 = " + str(x1))
         print("Второй корень, x2 = " + str(x2))
+        sleep(30)
         exit()
     if (D == 0):
         x1 = (-b / 2 + mh.sqrt(D)) / a
         print("Первый корень, x1 = " + str(x1))
+        sleep(30)
+        exit()
 else:
     D=mh.pow(b,2) - 4 * a * c
     if (D < 0):
         print("Нет корней, так как дискриминант меньше нуля")
+        sleep(30)
         exit()
     if (D > 0):
         x1 = (-b + mh.sqrt(D)) / 2 * a
         x2 = (-b - mh.sqrt(D)) / 2 * a
         print("Первый корень, x1 = " + str(x1))
         print("Второй корень, x2 = " + str(x2))
+        sleep(30)
         exit()
     if (D == 0):
         x1 = (-b + mh.sqrt(D)) / 2 * a
         print("Первый корень, x1 = " + str(x1))
+        sleep(30)
         exit()
+input()
