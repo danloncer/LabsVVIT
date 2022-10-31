@@ -1,3 +1,4 @@
+from time import *
 sides = [3, 2, 4, 7, 5, 12, 11, 13, 15, 16, 14, 14]
 sides = sorted(sides, reverse=True)
 
@@ -14,3 +15,4 @@ for i in range(len(sides)):
                 if s > smax:
                     smax = s
 print("Максимальная площадь треугольника ", smax)
+sleep(10)
