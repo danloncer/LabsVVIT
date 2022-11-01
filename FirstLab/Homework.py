@@ -13,19 +13,20 @@ c = float(input("Введите значение коэффициента 'c':\n
 x1 = 0
 x2 = 0
 D = 0
+def outPrint():
+    print("Первый корень, x1 = " + str(x1))
+    print("Второй корень, x2 = " + str(x2))
 #После ввода пройдемся по некоторым условиям, чтобы словить одно из свойств
 if (a + b + c == 0):
     x1 = 1
     x2 = c / a
-    print("Первый корень, x1 = " + str(x1))
-    print("Второй корень, x2 = " + str(x2))
+    outPrint()
     sleep(30)
     exit()
 elif (b == a + c):
     x1 = -1
     x2 = -c / a
-    print("Первый корень, x1 = " + str(x1))
-    print("Второй корень, x2 = " + str(x2))
+    outPrint()
     sleep(30)
     exit()
 elif (b % 2 == 0):
@@ -37,8 +38,7 @@ elif (b % 2 == 0):
     if (D > 0):
         x1 = (-b / 2 + mh.sqrt(D)) / a
         x2 = (-b / 2 - mh.sqrt(D)) / a
-        print("Первый корень, x1 = " + str(x1))
-        print("Второй корень, x2 = " + str(x2))
+        outPrint()
         sleep(30)
         exit()
     if (D == 0):
@@ -55,8 +55,7 @@ else:
     if (D > 0):
         x1 = (-b + mh.sqrt(D)) / 2 * a
         x2 = (-b - mh.sqrt(D)) / 2 * a
-        print("Первый корень, x1 = " + str(x1))
-        print("Второй корень, x2 = " + str(x2))
+        outPrint()
         sleep(30)
         exit()
     if (D == 0):
@@ -64,4 +63,3 @@ else:
         print("Первый корень, x1 = " + str(x1))
         sleep(30)
         exit()
-input()
