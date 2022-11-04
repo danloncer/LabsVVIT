@@ -63,3 +63,4 @@ else:
         print("Первый корень, x1 = " + str(x1))
         sleep(30)
         exit()
+
