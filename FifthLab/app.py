@@ -23,6 +23,9 @@ def login():
             username = request.form.get('username')
             password = request.form.get('password')
 
+            # Исключение на пустые поля
+            if str(username) == '' or str(password) == '':
+                return render_template('error.html')
             # Хеш. Проверка сохранненого в базе данных хеша с хешом, который создается при вводе нового пароля
             cursor.execute("SELECT * FROM service.users WHERE login=%s", [username])
             columns = cursor.fetchone()
@@ -34,9 +37,7 @@ def login():
                 return render_template("invalidPerson.html")
             # Создание хеша из введеного пароля пользователем и соли, которая использовалась для этого пользователя
             newkey = str(hashlib.pbkdf2_hmac('sha256', password.encode('utf-8'), salt, 100000))
-            #Исключения при авторизации и получение информации с базы данных с помощью хеша
-            if str(username) == '' or str(password) == '':
-                return render_template('error.html')
+            #Получение информации с базы данных с помощью хеша и исключение
             if (key == newkey):
                 cursor.execute("SELECT * FROM service.users WHERE login=%s AND hash=%s", (str(username), str(newkey)))
                 records = list(cursor.fetchall())
@@ -56,7 +57,7 @@ def registration():
         login = request.form.get('login')
         password = request.form.get('password')
         #Проверка на пустые поля
-        if str(name) == '' or str(login) == '' or str(password) == '':
+        if str(name) == '' or str(login) == '' or str(password) == '' or str(name) == 'Name' or str(name) == 'name' or str(login) == 'Login' or str(login) == 'login':
             return render_template('error.html')
         #Проверка на занятый логин
         cursor.execute("SELECT login FROM service.users")
